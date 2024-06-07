@@ -1,7 +1,4 @@
 import os
-import gevent.monkey
-gevent.monkey.patch_all()
-
 from flask import Flask, render_template, request, session, redirect
 from flask_cors import CORS
 from flask_migrate import Migrate
@@ -21,6 +18,7 @@ from .config import Config
 
 # socket import
 from .socket import socketio
+
 
 app = Flask(__name__, static_folder='../react-app/build', static_url_path='/')
 
@@ -47,7 +45,7 @@ db.init_app(app)
 Migrate(app, db)
 
 # initialize the app with the socket instance
-socketio.init_app(app, async_mode='gevent')
+socketio.init_app(app)
 
 # Application Security
 CORS(app)
