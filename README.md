@@ -2,23 +2,8 @@
 
 Q-CORD is a clone of the site: DISCORD.  This was a project to display the work for the utilization of React, Redux, Flask, SQLAlchemy, WebSockets, Python, Javascript, and PostgreSQL.  This project simulated working within a group environment within time constraints.  Our group of four full-stack software engineers participated in daily stand-ups and worked under senior developers which set the parameters for the expectations of this project.
 
-live site: https://q-cord.onrender.com/
+Check out Q-Cord [here!](https://q-cord-3a19b2e7c06c.herokuapp.com/)
 
-# Contact
-
-David Burch:
-
-ddb048@gmail.com
-
-Moran Even:
-
-method.even@gmail.com
-
-Abel Brianvil:
-
-abrianvil@gmail.com
-
-Cindy Guzman:
 
 ## Tech Stack
 
