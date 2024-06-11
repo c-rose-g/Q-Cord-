@@ -5,8 +5,7 @@ from sqlalchemy import ForeignKey
 
 class Channel(db.Model):
     __tablename__='channels'
-    if environment == "production":
-        __table_args__ = {'schema': SCHEMA}
+
     id = db.Column(db.Integer, primary_key = True)
     name = db.Column(db.String, nullable = False)
     is_voice = db.Column(db.Boolean, default=False)
