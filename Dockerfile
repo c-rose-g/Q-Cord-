@@ -1,3 +1,4 @@
+# syntax=docker/dockerfile:1
 # Start with the python:3.9 image
 FROM python:3.9
 
@@ -13,9 +14,9 @@ WORKDIR /var/www
 # Copy all the files from your repo to the working directory
 COPY . .
 # start with node:8.15
-FROM node:8.15.1-alpine as build-stage
+# FROM node:8.15.1-alpine as build-stage
 # Install dependencies and build the React app
-RUN cd /react-app && npm install && npm run build
+# RUN cd /react-app && npm install && npm run build
 # Copy the built react app (it's built for us) from the
 # /react-app/build/ directory into your flasks app/static directory
 COPY /react-app/build/* app/static/
