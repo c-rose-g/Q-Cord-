@@ -3,7 +3,6 @@
 FROM python:3.9
 
 # Set the following enviroment variables
-#
 ENV REACT_APP_BASE_URL=https://q-cord-3a19b2e7c06c.herokuapp.com/
 ENV FLASK_APP=app
 ENV FLASK_ENV=production
@@ -13,13 +12,9 @@ ENV SQLALCHEMY_ECHO=true
 WORKDIR /var/www
 # Copy all the files from your repo to the working directory
 COPY . .
-# start with node:8.15
-# FROM node:8.15.1-alpine as build-stage
-# Install dependencies and build the React app
-# RUN cd /react-app && npm install && npm run build
 # Copy the built react app (it's built for us) from the
 # /react-app/build/ directory into your flasks app/static directory
-COPY /react-app/build/* app/static/
+COPY /react-app/build/static/ .
 # Run the next two python install commands with PIP
 # install -r requirements.txt
 # install psycopg2
