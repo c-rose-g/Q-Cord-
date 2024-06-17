@@ -22,14 +22,17 @@ ENV REACT_APP_BASE_URL=https://q-cord-forked.onrender.com/
 ENV FLASK_APP=app
 ENV FLASK_ENV=production
 ENV SQLALCHEMY_ECHO=true
+# Copy all the files from your repo to the working directory
+COPY . .
+# Copy the built react app (it's built for us) from the
+# /react-app/build/ directory into your flasks app/static directory
+COPY /react-app/build/* app/static/
 # Run the next two python install commands with PIP
 # install -r requirements.txt
 # install psycopg2
-COPY ./requirements.txt /app
 RUN pip install -r requirements.txt
-# Copy the Flask app source code to the container
-COPY ./backend /app
-# Copy the built React app from the previous stage
-COPY --from=build /app/build /app/react-app/build
-# Command to run the Flask app
-CMD ["gunicorn", "-b", "0.0.0.0:5000", "wsgi:app"]
+RUN pip install psycopg2
+# Start the flask environment by setting our
+# closing command to gunicorn app:app
+CMD gunicorn app:app
+
