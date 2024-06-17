@@ -1,0 +1,12 @@
+# Exported from Render on 2024-06-17T08:36:36Z
+databases:
+- name: q-cord-postgresSQL
+  databaseName: q_cord_postgressql
+  user: q_cord_postgressql_user
+  plan: free
+  region: oregon
+  ipAllowList:
+  - source: 0.0.0.0/0
+    description: everywhere
+  postgresMajorVersion: "16"
+version: "1"
