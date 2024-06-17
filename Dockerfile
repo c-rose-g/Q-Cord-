@@ -18,7 +18,7 @@ FROM python:3.9
 # Set working directory
 WORKDIR /app
 # Set the following enviroment variables
-ENV REACT_APP_BASE_URL=https://q-cord-forked.onrender.com/
+ENV REACT_APP_BASE_URL=https://q-cord-3a19b2e7c06c.herokuapp.com/
 ENV FLASK_APP=app
 ENV FLASK_ENV=production
 ENV SQLALCHEMY_ECHO=true
