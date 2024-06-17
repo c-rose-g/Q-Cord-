@@ -4,7 +4,8 @@ from sqlalchemy import ForeignKey
 
 class Message(db.Model):
     __tablename__ = 'messages'
-
+    if environment == "production":
+        __table_args__ = {'schema': SCHEMA}
     id = db.Column(db.Integer, primary_key=True)
     message_body = db.Column(db.String(255), nullable=False)
     owner_id = db.Column(db.Integer, ForeignKey(add_prefix_for_prod("users.id")))

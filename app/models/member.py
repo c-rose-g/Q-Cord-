@@ -19,11 +19,12 @@ from sqlalchemy import ForeignKey
 
 class Member(db.Model):
     __tablename__ = 'members'
-
+    if environment == "production":
+        __table_args__ = {'schema': SCHEMA}
     roles = db.Column(db.String(50), nullable=False)
     user_id = db.Column(ForeignKey(
         add_prefix_for_prod("users.id")), primary_key=True)
-    server_id = db.Column(ForeignKey(
+    server_id = db.Column(db.Integer, ForeignKey(
         add_prefix_for_prod("servers.id")), primary_key=True)
     created_at = db.Column(db.DateTime(), nullable=False,
                            server_default=func.now())
