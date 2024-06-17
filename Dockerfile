@@ -1,17 +1,17 @@
 # syntax=docker/dockerfile:1
 
-# Stage 1: Build React app
-FROM node:16 AS build
-# Set working directory
-WORKDIR /app
-# Copy the React app package.json files to the container
-COPY react-app/package.json react-app/package-lock.json ./
-# Install dependencies
-RUN npm install
-# Copy the React app source code to the container
-COPY react-app/ ./
-#build the React app
-RUN npm run build
+# # Stage 1: Build React app
+# FROM node:16 AS build
+# # Set working directory
+# WORKDIR /app
+# # Copy the React app package.json files to the container
+# COPY react-app/package.json react-app/package-lock.json ./
+# # Install dependencies
+# RUN npm install
+# # Copy the React app source code to the container
+# COPY react-app/ ./
+# #build the React app
+# RUN npm run build
 
 # Stage 2: with the python:3.9 image
 FROM python:3.9
@@ -35,4 +35,3 @@ RUN pip install psycopg2
 # Start the flask environment by setting our
 # closing command to gunicorn app:app
 CMD gunicorn app:app
-
